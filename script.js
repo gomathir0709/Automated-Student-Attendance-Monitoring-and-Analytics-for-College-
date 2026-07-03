@@ -73,3 +73,24 @@ function displayStudents() {
 }
 
 displayStudents();
+function displayAttendance() {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let table = document.getElementById("attendanceTable");
+
+    if (!table) return;
+
+    table.innerHTML = "";
+
+    students.forEach(function(student, index) {
+        table.innerHTML += `
+        <tr>
+            <td>${student.roll}</td>
+            <td>${student.name}</td>
+            <td><input type="radio" name="attendance${index}" value="Present"></td>
+            <td><input type="radio" name="attendance${index}" value="Absent"></td>
+        </tr>`;
+    });
+}
+
+displayAttendance();
+
