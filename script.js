@@ -20,10 +20,14 @@ function addStudent() {
         return;
     }
 
-    alert("Student Added Successfully!");
+
+ alert("Student Added Successfully!");
 
     document.getElementById("roll").value = "";
     document.getElementById("name").value = "";
     document.getElementById("department").value = "";
     document.getElementById("year").value = "";
+}
+function saveAttendance() {
+    alert("Attendance Saved Successfully!");
 }
