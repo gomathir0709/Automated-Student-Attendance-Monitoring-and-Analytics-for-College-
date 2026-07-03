@@ -93,4 +93,14 @@ function displayAttendance() {
 }
 
 displayAttendance();
+function updateDashboard() {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let total = document.getElementById("dashboardTotalStudents");
+
+    if (total) {
+        total.textContent = students.length;
+    }
+}
+
+updateDashboard();
 
