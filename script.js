@@ -53,3 +53,23 @@ alert("Student Added Successfully!");
 function saveAttendance() {
     alert("Attendance Saved Successfully!");
 }
+function displayStudents() {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let table = document.getElementById("studentTable");
+
+    if (!table) return;
+
+    table.innerHTML = "";
+
+    students.forEach(function(student) {
+        table.innerHTML += `
+        <tr>
+            <td>${student.roll}</td>
+            <td>${student.name}</td>
+            <td>${student.department}</td>
+            <td>${student.year}</td>
+        </tr>`;
+    });
+}
+
+displayStudents();
