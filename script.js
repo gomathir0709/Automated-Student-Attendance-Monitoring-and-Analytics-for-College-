@@ -1,5 +1,5 @@
 function addStudent() {
-    alert("Button is working!");
+    alert("Working");
 }
 
     if (roll === "" || name === "" || department === "" || year === "") {
