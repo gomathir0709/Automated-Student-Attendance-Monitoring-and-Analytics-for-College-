@@ -97,3 +97,22 @@ function deleteStudent(index) {
 
     displayStudents();
 }
+function loadAttendance() {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let table = document.getElementById("attendanceTable");
+
+    if (!table) return;
+
+    table.innerHTML = "";
+
+    students.forEach(function(student) {
+        table.innerHTML += `
+        <tr>
+            <td>${student.roll}</td>
+            <td>${student.name}</td>
+            <td><input type="radio" name="att_${student.roll}" value="Present"></td>
+            <td><input type="radio" name="att_${student.roll}" value="Absent"></td>
+        </tr>
+        `;
+    });
+}
