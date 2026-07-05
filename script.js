@@ -1,19 +1,13 @@
-function login() {
-    let username = document.getElementById("username").value.trim();
-    let password = document.getElementById("password").value.trim();
-
-    if (username === "admin" && password === "admin123") {
-        alert("Login Successful!");
-        window.location.href = "dashboard.html";
-    } else {
-        alert("Invalid Username or Password!");
-    }
-}
 function addStudent() {
-    let roll = document.getElementById("roll").value;
-    let name = document.getElementById("name").value;
-    let department = document.getElementById("department").value;
-    let year = document.getElementById("year").value;
+    let roll = document.getElementById("roll").value.trim();
+    let name = document.getElementById("name").value.trim();
+    let department = document.getElementById("department").value.trim();
+    let year = document.getElementById("year").value.trim();
+
+    if (roll === "" || name === "" || department === "" || year === "") {
+        alert("Please fill all fields!");
+        return;
+    }
 
     let students = JSON.parse(localStorage.getItem("students")) || [];
 
@@ -32,5 +26,6 @@ function addStudent() {
     document.getElementById("name").value = "";
     document.getElementById("department").value = "";
     document.getElementById("year").value = "";
-}
 
+    location.reload();
+}
