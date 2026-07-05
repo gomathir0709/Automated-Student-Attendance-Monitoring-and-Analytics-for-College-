@@ -1,3 +1,4 @@
+// Login Function
 function login() {
     let username = document.getElementById("username").value.trim();
     let password = document.getElementById("password").value.trim();
@@ -10,6 +11,7 @@ function login() {
     }
 }
 
+// Add Student
 function addStudent() {
     let roll = document.getElementById("roll").value.trim();
     let name = document.getElementById("name").value.trim();
@@ -39,5 +41,49 @@ function addStudent() {
     document.getElementById("department").value = "";
     document.getElementById("year").value = "";
 
-    location.reload();
+    displayStudents();
 }
+
+// Display Students
+function displayStudents() {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+
+    let table = document.getElementById("studentTable");
+
+    if (!table) return;
+
+    table.innerHTML = "";
+
+    students.forEach(function(student) {
+        table.innerHTML += `
+        <tr>
+            <td>${student.roll}</td>
+            <td>${student.name}</td>
+            <td>${student.department}</td>
+            <td>${student.year}</td>
+        </tr>
+        `;
+    });
+}
+
+// Search Student
+function searchStudent() {
+    let input = document.getElementById("searchStudent").value.toLowerCase();
+
+    let rows = document.querySelectorAll("#studentTable tr");
+
+    rows.forEach(function(row) {
+        let text = row.innerText.toLowerCase();
+
+        if (text.includes(input)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+
+// Load Students Automatically
+window.onload = function() {
+    displayStudents();
+};
