@@ -1,8 +1,6 @@
 function addStudent() {
-    let roll = document.getElementById("roll").value.trim();
-    let name = document.getElementById("name").value.trim();
-    let department = document.getElementById("department").value.trim();
-    let year = document.getElementById("year").value.trim();
+    alert("Button is working!");
+}
 
     if (roll === "" || name === "" || department === "" || year === "") {
         alert("Please fill all fields!");
