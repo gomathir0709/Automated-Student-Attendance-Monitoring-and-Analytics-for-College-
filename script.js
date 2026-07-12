@@ -89,8 +89,8 @@ window.onload = function() {
     displayStudents();
     loadAttendance();
 };
-}
-};
+
+
 function deleteStudent(index) {
     let students = JSON.parse(localStorage.getItem("students")) || [];
 
