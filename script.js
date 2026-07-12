@@ -88,6 +88,7 @@ function searchStudent() {
 window.onload = function() {
     displayStudents();
     loadAttendance();
+};
 }
 };
 function deleteStudent(index) {
